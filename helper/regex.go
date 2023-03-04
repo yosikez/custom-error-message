@@ -8,7 +8,7 @@ import (
 )
 
 
-func CheckDiveField(err validator.FieldError, parent struct{}, child struct{}) (map[string]string, bool) {
+func CheckDiveField(err validator.FieldError, parent interface{}, child interface{}) (map[string]string, bool) {
 	pattern := `^(\w+)\.(\w+)\[(\d+)\]\.(\w+)$`
 	re := regexp.MustCompile(pattern)
 	str := err.Namespace()

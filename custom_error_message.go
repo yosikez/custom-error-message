@@ -10,7 +10,7 @@ import (
 	"github.com/yosikez/custom-error-message/helper"
 )
 
-func GetErrMess(err error, parentStruct struct{}, childStruct struct{}) map[string]string {
+func GetErrMess(err error, parentStruct interface{}, childStruct interface{}) map[string]string {
 	errFields := make(map[string]string)
 	var errs validator.ValidationErrors
 
