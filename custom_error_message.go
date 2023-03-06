@@ -46,6 +46,8 @@ func GetErrMess(err error, parentStruct interface{}, childStruct interface{}) ma
 				errFields[field] = fmt.Sprintf("%s must be numeric", disField)
 			case "datetime":
 				errFields[field] = fmt.Sprintf("%s format must be yyyy-mm-dd hh:mm:ss", disField)
+			case "uniqueField":
+				errFields[field] = fmt.Sprintf("%s already taken", disField)
 			default:
 				errFields[field] = fmt.Sprintf("%s is not valid", disField)
 			}
