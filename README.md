@@ -88,7 +88,7 @@ import (
     cusMessage "github.com/yosikez/custom-error-message"
 )
 
-type User struct {
+type Person struct {
     Name     string `json:"name" binding:"required"`
     Email    string `json:"email" binding:"required,email"`
     Password string `json:"password" binding:"required,min=8"`
