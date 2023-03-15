@@ -21,7 +21,12 @@ func GetErrMess(err error, parentStruct interface{}, childStruct interface{}) ma
 			mapStr, isTrue := helper.CheckDiveField(errField, parentStruct, childStruct)
 
 			if isTrue {
-				field = fmt.Sprintf("%s.%s.%s", mapStr["field"], mapStr["index"], mapStr["attribute"])
+				_, ok := mapStr["index"]
+				if ok {
+					field = fmt.Sprintf("%s.%s.%s", mapStr["field"], mapStr["index"], mapStr["attribute"])
+				} else {
+					field = fmt.Sprintf("%s.%s", mapStr["field"], mapStr["attribute"])
+				}
 				disField = mapStr["attribute"]
 			} else {
 				structField, _ := reflect.TypeOf(parentStruct).FieldByName(errField.Field())
