@@ -77,7 +77,7 @@ func Create(c *gin.Context) {
 ```
 
 
-### Examle 2
+### Example 2
 
 ```golang
 package controller
