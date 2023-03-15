@@ -12,7 +12,7 @@ func CheckDiveField(err validator.FieldError, parent interface{}, child interfac
 	pattern2 := `^(\w+)\.(\w+)\.(\w+)$`
 	str := err.Namespace()
 
-	if matches, err := regexp.MatchString(pattern, str); err != nil && matches {
+	if matches, err := regexp.MatchString(pattern, str); err == nil && matches {
 		re := regexp.MustCompile(pattern)
 
 		result := re.FindStringSubmatch(str)
@@ -29,7 +29,7 @@ func CheckDiveField(err validator.FieldError, parent interface{}, child interfac
 		mapStr["attribute"] = attrField
 
 		return mapStr, true
-	} else if matches, err := regexp.MatchString(pattern2, str); err != nil && matches {
+	} else if matches, err := regexp.MatchString(pattern2, str); err == nil && matches {
 		re := regexp.MustCompile(pattern2)
 
 		result := re.FindStringSubmatch(str)
